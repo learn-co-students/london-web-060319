@@ -1,0 +1,4 @@
+<h2><%= @sushi.name %></h2>
+<h2>£<%= @sushi.price %></h2>
+<h2><%= @sushi.ingredient ? @sushi.ingredient.name : 'no ingredient set! please edit' %></h2>
+<a href="/sushis/<%= @sushi.id %>/edit">edit this sushi</a>
