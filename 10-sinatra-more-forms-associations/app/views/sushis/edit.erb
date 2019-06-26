@@ -1,0 +1,15 @@
+<form action="/sushis/<%= @sushi.id %>" method="post">
+    <input type="hidden" name="_method" value="patch" />
+    <input type="text" name="sushi[name]" value="<%= @sushi.name %>"/>
+    <input type="number" step="0.01" name="sushi[price]" value="<%= @sushi.price %>" />
+    <select name="sushi[ingredient_id]">
+        <% @ingredients_for_dropdown.each do |ingredient| %>
+            <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
+        <% end %>
+    </select>
+    <input type="submit" value="edit" />
+</form>
+<form action="/sushis/<%= @sushi.id %>" method="post">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="delete this sushi" />
+</form>
