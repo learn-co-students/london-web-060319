@@ -5,5 +5,13 @@
         <input type="checkbox" id="ingredient-<%= ingredient.id %>" name="sushi[ingredient_ids][]" value="<%= ingredient.id %>">
         <label for="ingredient-<%= ingredient.id %>"><%= ingredient.name %></label>
     <% end %>
+    <select name="sushi[category_id]">
+        <% @categories.each do |category| %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+        <% end %>
+    </select>
+    <input type="text" name="sushi[ingredients_attributes][][name]" />
+    <input type="text" name="sushi[ingredients_attributes][][name]" />
+    <input type="text" name="sushi[ingredients_attributes][][name]" />
     <input type="submit" />
 </form>

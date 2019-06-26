@@ -7,12 +7,13 @@ class SushisController < ApplicationController
   end
 
   get '/sushis' do
-    @sushis = Sushi.all
+    @categories = Category.all
     erb :'sushis/index'
   end
 
   get '/sushis/new' do
     @ingredients_for_dropdown = Ingredient.all
+    @categories = Category.all
     erb :'sushis/new'
   end
 

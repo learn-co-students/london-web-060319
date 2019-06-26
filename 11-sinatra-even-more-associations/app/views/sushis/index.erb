@@ -1,5 +1,10 @@
 <h1>all the sushis</h1>
 
-<% @sushis.each do |sushi| %>
-    <a href="/sushis/<%= sushi.id %>"><p><%= sushi.name %></p></a>
+<% @categories.each do |category| %>
+    <div>
+    <h2><%= category.name %></h2>
+    <% category.sushis.each do |sushi| %>
+        <a href="/sushis/<%= sushi.id %>"><p><%= sushi.name %></p></a>
+    <% end %>
+    </div>
 <% end %>

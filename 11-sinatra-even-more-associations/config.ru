@@ -9,3 +9,4 @@ use Rack::MethodOverride
 run ApplicationController
 use SushisController
 use IngredientsController
+use CategoriesController

@@ -1,4 +1,4 @@
-<h2><%= @sushi.name %></h2>
+<h2><%= @sushi.name %> - <%= @sushi.category.name %></h2>
 <h2>£<%= @sushi.price %></h2>
 <% @sushi.ingredients.each do |ingredient| %>
     <a href="/ingredients/<%= ingredient.id %>"><%= ingredient.name %></a>
