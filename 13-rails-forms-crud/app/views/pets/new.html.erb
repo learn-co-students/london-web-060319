@@ -1,0 +1,7 @@
+<h2>new pet</h2>
+<%= form_tag pets_path do %>
+    <%= text_field_tag :'pet[name]'%>
+    <%= number_field_tag :'pet[age]' %>
+    <%= select_tag :'pet[species_id]', options_for_select(@species_for_select) %>
+    <%= submit_tag %>
+<% end %>

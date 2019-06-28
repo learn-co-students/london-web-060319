@@ -1,0 +1,8 @@
+<h2>new pet</h2>
+<%= form_tag(pet_path(@pet), method: 'patch') do %>
+    <%= text_field_tag :'pet[name]', @pet.name %>
+    <%= number_field_tag :'pet[age]', @pet.age %>
+    <%= select_tag :'pet[species_id]', options_for_select(@species_for_select, @pet.species_id) %>
+    <%= submit_tag %>
+<% end %>
+<%= link_to 'delete this pet', pet_path(@pet), {method: 'delete', data: { confirm: 'Are you sure?' }}  %>
