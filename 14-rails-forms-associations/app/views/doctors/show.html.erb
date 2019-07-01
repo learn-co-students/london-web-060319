@@ -1,0 +1,10 @@
+<h2><%= @doctor.name %></h2>
+<h2><%= @doctor.speciality %></h2>
+
+<% @doctor.patients.each do |patient| %>
+    <div>
+    <%= link_to patient.name, patient %> or <%= link_to 'book appointment with this doctor and patient', new_appointment_path({ doctor_id: @doctor.id, patient_id: patient.id}) %>
+    </div>
+<% end %>
+
+<%= link_to 'book appointment with this doctor', new_appointment_path({ doctor_id: @doctor.id}) %>

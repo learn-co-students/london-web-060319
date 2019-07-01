@@ -1,0 +1,9 @@
+<%= form_for @doctor do |form| %>
+    <%= form.label :name do %>
+        <h2>namme </h2>
+    <% end %>
+    <%= form.text_field :name %>
+    <%= form.label :speciality %>
+    <%= form.text_field :speciality %>
+    <%= form.submit %>
+<% end %>
