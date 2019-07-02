@@ -1,0 +1,9 @@
+<h2>Dunder Mifflin</h2>
+<h1>Employees</h1>
+
+<ul>
+  <% @employees.each do |employee| %>
+    <li><%= employee.full_name %></li>
+  <% end %>
+</ul>
+
