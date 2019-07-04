@@ -1,0 +1,11 @@
+<h2>YAY! You're about to adopt <%= @dog.name %></h2>
+
+<%= form_for @dog, url: "/dogs/#{@dog.id}/adopt", method: 'POST' do |f| %>
+  <%= f.collection_select :id, @employees, :id, :full_name %>
+  <%= f.submit %>
+<% end %>
+
+<%= form_tag "/dogs/#{@dog.id}/adopt" do %>
+  <%= select_tag "employee_id", options_from_collection_for_select(@employees, "full_name", "id") %>
+  <%= submit_tag %>
+<% end %>
