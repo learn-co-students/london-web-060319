@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DoctorsOffice</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to 'all doctors', doctors_path %>
+    <%= link_to 'all patients', patients_path %>
+    <%= link_to 'new doctor', new_doctor_path %>
+    <%= link_to 'new patient', new_patient_path %>
+    <%= link_to 'new appointment', new_appointment_path %>
+    <% if logged_in? %>
+      hello <%= @current_user.email %>!<%= link_to 'log out', logout_path, { method: 'delete' } %>
+    <% else %>
+      <%= link_to 'log in', login_path %> or <%= link_to 'sign up', new_user_path %>
+    <% end %>
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+            <p class="error"><%= error %></p?>
+        <% end %>
+    <% end %>
+    <% if flash[:notice] %>
+        <div>
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

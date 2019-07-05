@@ -1,0 +1,21 @@
+<%= form_for @appointment do |form| %>
+    <%= form.label :doctor_id %>
+    <% if @doctor %>
+        <p><%= @doctor.name %></p>
+        <%= form.hidden_field :doctor_id, value: @doctor.id %>
+    <% else %>
+        <%= form.collection_select :doctor_id, Doctor.all, :id, :name %>
+    <% end%>
+    <%= form.label :patient_id %>
+    <% if @patient %>
+        <p><%= @patient.name %></p>
+        <%= form.hidden_field :patient_id, value: @patient.id %>
+    <% else %>
+        <%= form.collection_select :patient_id, Patient.all, :id, :name %>
+    <% end%>
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+    <%= form.label :time %>
+    <%= form.time_field :time %>
+    <%= form.submit %>
+<% end %>
