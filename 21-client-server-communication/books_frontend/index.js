@@ -34,8 +34,6 @@ const button = document.querySelector("button");
 
 button.addEventListener("click", () => {
   fetch("http://localhost:3001/books")
-    .then(booksData => {
-      booksData.json();
-    })
-    .then(booksArray => showBooks(booksArray));
+    .then(data => data.json()) // this resolves to a js obj (in this case, an [])
+    .then(() => console.log(booksArray));
 });
