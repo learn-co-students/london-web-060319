@@ -2379,3 +2379,152 @@ Completed 500 Internal Server Error in 1605318ms
 Errno::EIO (Input/output error - read):
   
 app/controllers/dogs_controller.rb:18:in `finalise_adoption'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "dogs"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "dogs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "breed" varchar, "age" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "alias" varchar, "title" varchar, "office" varchar, "img_url" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "dog_id" integer)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_employees_on_dog_id" ON "employees" ("dog_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "dogs"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "dogs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "breed" varchar, "age" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "alias" varchar, "title" varchar, "office" varchar, "img_url" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "dog_id" integer)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX "index_employees_on_dog_id" ON "employees" ("dog_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190702144233)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180411182815),
+(20180411182746);
+
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-07-29 13:21:26.494322"], ["updated_at", "2019-07-29 13:21:26.494322"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-07-29 13:21:26.498987"], ["key", "environment"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Daisy"], ["breed", "Dhole"], ["age", "adult"], ["created_at", "2019-07-29 13:21:26.930210"], ["updated_at", "2019-07-29 13:21:26.930210"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Sandy"], ["breed", "Blood Hound"], ["age", "young"], ["created_at", "2019-07-29 13:21:26.932389"], ["updated_at", "2019-07-29 13:21:26.932389"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bruno"], ["breed", "Dachshund"], ["age", "young"], ["created_at", "2019-07-29 13:21:26.935370"], ["updated_at", "2019-07-29 13:21:26.935370"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Shadow"], ["breed", "Coonhound"], ["age", "young"], ["created_at", "2019-07-29 13:21:26.937959"], ["updated_at", "2019-07-29 13:21:26.937959"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Peanut"], ["breed", "Irish Setter"], ["age", "puppy"], ["created_at", "2019-07-29 13:21:26.940256"], ["updated_at", "2019-07-29 13:21:26.940256"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Shadow"], ["breed", "Tibetan Terrier"], ["age", "young"], ["created_at", "2019-07-29 13:21:26.942279"], ["updated_at", "2019-07-29 13:21:26.942279"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Sandy"], ["breed", "English Setter"], ["age", "adult"], ["created_at", "2019-07-29 13:21:26.944494"], ["updated_at", "2019-07-29 13:21:26.944494"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jim"], ["last_name", "Halpert"], ["alias", "Big Tuna"], ["title", "Regional Co-Manager"], ["office", "Scranton"], ["img_url", "https://s-i.huffpost.com/gen/2028878/images/n-UPROXX-628x314.jpg"], ["created_at", "2019-07-29 13:21:26.962828"], ["updated_at", "2019-07-29 13:21:26.962828"], ["dog_id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Michael"], ["last_name", "Scott"], ["alias", "Prison Mike"], ["title", "Regional Manager"], ["office", "Scranton"], ["img_url", "https://i2.wp.com/mtncatholic.com/wp-content/uploads/2016/10/6357600113572837231773916132_michael-scott-s-top-tantrums.png?fit=500%2C359"], ["created_at", "2019-07-29 13:21:26.965627"], ["updated_at", "2019-07-29 13:21:26.965627"], ["dog_id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Karen"], ["last_name", "Filippelli"], ["alias", "none"], ["title", "Sales Representative"], ["office", "Stamford"], ["img_url", "https://i.redd.it/vigerabg4x7z.jpg"], ["created_at", "2019-07-29 13:21:26.967931"], ["updated_at", "2019-07-29 13:21:26.967931"], ["dog_id", 3]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Dwight"], ["last_name", "Schrute"], ["alias", "Bear Expert"], ["title", "Assistant to the Regional Manager"], ["office", "Scranton"], ["img_url", "https://typeset-beta.imgix.net/rehost/2016/10/31/dfe8a990-943e-44fc-a613-f6a3c7aaedff.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70"], ["created_at", "2019-07-29 13:21:26.970248"], ["updated_at", "2019-07-29 13:21:26.970248"], ["dog_id", 1]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 3]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jan"], ["last_name", "Levinson"], ["alias", "none"], ["title", "VP of Sales"], ["office", "Corporate"], ["img_url", "https://vignette.wikia.nocookie.net/theoffice/images/b/b6/111423.jpg/revision/latest?cb=20101116030321"], ["created_at", "2019-07-29 13:21:26.973272"], ["updated_at", "2019-07-29 13:21:26.973272"], ["dog_id", 4]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Toby"], ["last_name", "Flenderson"], ["alias", "The worst"], ["title", "HR Representative"], ["office", "Scranton"], ["img_url", "https://pbs.twimg.com/media/DAM0C36VwAA19DM.jpg:large"], ["created_at", "2019-07-29 13:21:26.975605"], ["updated_at", "2019-07-29 13:21:26.975605"], ["dog_id", 3]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 4]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Pam"], ["last_name", "Beesly"], ["alias", "Beesly"], ["title", "Office Administrator"], ["office", "Scranton"], ["img_url", "http://img4.bdbphotos.com/images/700x350/q/m/qm3wuw0enjlzen.jpg?skj2io4l"], ["created_at", "2019-07-29 13:21:26.978624"], ["updated_at", "2019-07-29 13:21:26.978624"], ["dog_id", 5]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kelly"], ["last_name", "Kapoor"], ["alias", "none"], ["title", "Customer Service Representative"], ["office", "Scranton"], ["img_url", "https://vignette.wikia.nocookie.net/theoffice/images/6/69/Kelly_Kapoor.jpg/revision/latest/scale-to-width-down/700?cb=20170701090501"], ["created_at", "2019-07-29 13:21:26.982049"], ["updated_at", "2019-07-29 13:21:26.982049"], ["dog_id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 3]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Oscar"], ["last_name", "Martinez"], ["alias", "none"], ["title", "Accountant"], ["office", "Scranton"], ["img_url", "https://vignette.wikia.nocookie.net/theoffice/images/2/25/Oscar_Martinez.jpg/revision/latest/scale-to-width-down/700?cb=20170701085818"], ["created_at", "2019-07-29 13:21:26.984589"], ["updated_at", "2019-07-29 13:21:26.984589"], ["dog_id", 4]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" ORDER BY "dogs"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 4]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "alias", "title", "office", "img_url", "created_at", "updated_at", "dog_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Darryl"], ["last_name", "Philbin"], ["alias", "none"], ["title", "Warehouse Assistant"], ["office", "Scranton"], ["img_url", "https://vignette.wikia.nocookie.net/theoffice/images/4/49/2009DarrylCroppeed.PNG/revision/latest/scale-to-width-down/1000?cb=20170701085636"], ["created_at", "2019-07-29 13:21:26.987191"], ["updated_at", "2019-07-29 13:21:26.987191"], ["dog_id", 5]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2019-07-29 14:21:35 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dkaczmarczyk/.rvm/gems/ruby-2.6.1/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dkaczmarczyk/.rvm/gems/ruby-2.6.1/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 22ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dogs" for 127.0.0.1 at 2019-07-29 14:24:48 +0100
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs"[0m
+  Rendered dogs/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 302ms (Views: 296.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/dogs" for 127.0.0.1 at 2019-07-29 14:31:17 +0100
+  
+SyntaxError (/Users/dkaczmarczyk/Desktop/current_cohorts/c_060319/16-dunder-mifflin-review/app/controllers/dogs_controller.rb:5: syntax error, unexpected tIVAR, expecting end
+    render :json @dogs
+                 ^~~~~):
+  
+app/controllers/dogs_controller.rb:5: syntax error, unexpected tIVAR, expecting end
+Started GET "/dogs" for 127.0.0.1 at 2019-07-29 14:31:37 +0100
+Processing by DogsController#index as HTML
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs"[0m
+Completed 200 OK in 19ms (Views: 13.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/dogs" for 127.0.0.1 at 2019-07-29 14:32:07 +0100
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs"[0m
+  Rendered dogs/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dogs" for 127.0.0.1 at 2019-07-29 14:32:20 +0100
+Processing by DogsController#index as HTML
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs"[0m
+Completed 200 OK in 22ms (Views: 15.7ms | ActiveRecord: 1.7ms)
+
+
