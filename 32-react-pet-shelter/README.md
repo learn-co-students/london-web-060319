@@ -86,6 +86,14 @@ adoption status.
   with the pet's `id` when the user clicks the adopt pet button — _not_ when they
   click the disabled button!
 
+### BONUS
+
+- Add a button to clear the pets being displayed.
+
+- Make a patch request to save the adopted status in the back end.
+
+- Instead of showing a disabled button, show a button to 'unadopt' a pet
+
 ## Resources
 
 - [Forms](https://facebook.github.io/react/docs/forms.html)
