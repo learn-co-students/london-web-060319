@@ -16,11 +16,7 @@ this lab, we'll be working on a front-end for an animal shelter. Sadly, there
 still are way too many cute pets without any owners. Let's help them out by
 creating a UI in React!
 
-We **strongly** recommend completing this lab using Behavior Driven Development
-(BDD)––test the functionality in the browser **before** running the tests.
-You'll have a much better time seeing the results in the browser.
-
-Call `npm i && npm start` to run this project in your browser
+Open 2 terminals, run `npm i && npm start` in one and `json-server db.json -p=3003` in the other
 
 ## Instructions
 
@@ -38,35 +34,31 @@ working our way down through all its descendants:
 1.  The app's initial state is already defined. App has two children: the
     `<Filters />` and `<PetBrowser />` components.
 
-- App should pass a **callback** prop, `onChangeType`, to `<Filters />`. This
+- App should pass a **callback** prop, `changeType`, to `<Filters />`. This
   callback needs to update `<App />`'s `state.filters.type`
 
-- `<Filters />` needs a **callback** prop, `onFindPetsClick`. When the
-  `<Filters />` component calls `onFindPetsClick`, `<App />` should fetch a list
+- `<Filters />` needs a **callback** prop, `performSearch`. When the
+  `<Filters />` component calls `performSearch`, `<App />` should fetch a list
   of pets using `fetch()`.
 
-  - The URL of the API is `/api/pets` with an **optional query parameter**.
+  - The URL of the API is `http://localhost:3003/pets` with an **optional query parameter**.
   - Use app's state.filters to control/update this parameter
-  - If the `type` is `'all'`, send a request to `/api/pets`
-  - If the `type` is `'cat'`, send a request to `/api/pets?type=cat`. Do the
+  - If the `type` is `'all'`, send a request to `http://localhost:3003/pets`
+  - If the `type` is `'cat'`, send a request to `http://localhost:3003/pets?type=cat`. Do the
     same thing for `dog` and `micropig`.
   - Finally set `<App/>`'s `state.pets` with the results of your fetch request
     so you can pass the pet data down as props to `<PetBrowser />`
-
-* **Even though we're using `fetch` here, its responses have been mocked in
-  order to make the tests work properly. That means it's important to use the
-  _exact_ URLs as described above, or your tests will fail!**
 
 The pet data received should include information on individual pets and their
 adoption status.
 
 ### `Filters`
 
-1.  Should receive an `onChangeType` callback prop. This callback prop gets
+1.  Should receive an `changeType` callback prop. This callback prop gets
     called whenever the value of the `<select>` element changes with the **value**
     of the `<select>`
 
-- Should receive an `onFindPetsClick` callback prop. This callback prop gets
+- Should receive an `performSearch` callback prop. This callback prop gets
   called when the users clicks the 'Find pets' button.
 
 ### `PetBrowser`
@@ -76,7 +68,7 @@ adoption status.
     down as props. App should be responsible for filtering this list based on the
     types of pets the user wants to see.
 
-- Should receive an `onAdoptPet` prop. This callback prop gets passed to its
+- Should receive an `adoptPet` prop. This callback prop gets passed to its
 - `<Pet />` children components.
 
 ### `Pet`
@@ -90,7 +82,7 @@ adoption status.
   in the pet's card; if the pet is adopted, show the disabled button. Otherwise,
   show the primary button to adopt the pet.
 
-- Should receive an `onAdoptPet` callback prop. This callback prop gets called
+- Should receive an `adoptPet` callback prop. This callback prop gets called
   with the pet's `id` when the user clicks the adopt pet button — _not_ when they
   click the disabled button!
 
@@ -101,4 +93,3 @@ adoption status.
 - [Using State Correctly](https://reactjs.org/docs/state-and-lifecycle.html#using-state-correctly)
 - [State Updates May Be Asynchronous](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous)
 
-<p class='util--hide'>View <a href='https://learn.co/lessons/react-props-and-state-lab'>Props And State Lab</a> on Learn.co and start learning to code for free.</p>
