@@ -1,0 +1,10 @@
+.bread {
+    width: 200px;
+    border: solid black 1px;
+    margin: 10px;
+    text-align: center;
+}
+
+.bread img {
+    width: 100%;
+}
