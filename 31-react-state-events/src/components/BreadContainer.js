@@ -3,13 +3,13 @@ import Bread from "./Bread"
 
 function BreadContainer(props) {
   console.log(props)
-  const { breadList } = props
+  const { breadList, toggleToastedStatus, toggleToastedFilter, toasted } = props
   return (
     <div>
-      {props.toasted ? "toasted" : "not toasted"}
+      <button onClick={toggleToastedFilter}>{toasted ? "toasted filter ON" : "toasted filter OFF"}</button>
       <ul>
         {breadList.map(bread => {
-          return <Bread bread={bread} key={bread} />
+          return <Bread {...bread} key={bread} toggleToastedStatus={() => toggleToastedStatus(bread)} />
         })}
       </ul>
     </div>

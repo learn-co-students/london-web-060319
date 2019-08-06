@@ -16,49 +16,89 @@ const breadArray = [
   {
     name: "brown",
     image: brownImage,
-    available: true
+    toasted: false
   },
   {
     name: "seeded",
     image: seededImage,
-    available: true
+    toasted: true
   },
   {
     name: "rye",
     image: ryeImage,
-    available: true
+    toasted: true
   },
   {
     name: "dust",
     image: dustImage,
-    available: true
+    toasted: true
   },
   {
     name: "glue",
     image: glueImage,
-    available: true
+    toasted: true
   },
   {
     name: "skittles",
     image: skittlesImage,
-    available: true
+    toasted: true
   }
 ]
 
-console.log({breadArray})
+console.log({ breadArray })
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <BreadContainer
-        toasted={false}
-        people={["dan", "bob"]}
-        breadList={breadArray}
-      />
-      <Footer />
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    breadArray: breadArray,
+    toastedFilter: false
+  }
+
+  toggleToastedStatus = bread => {
+    console.log('change state of bread', bread)
+    this.setState({
+      breadArray: this.state.breadArray.map(b => {
+        if (b.name !== bread.name) return b;
+
+        b.toasted = !b.toasted;
+        return b
+      })
+    })
+  }
+
+  toggleToastedFilter = () => {
+    this.setState({
+      toastedFilter: !this.state.toastedFilter
+    })
+  }
+
+  render() {
+
+    const { breadArray, toastedFilter } = this.state
+    // const breadArray = this.state.breadArray
+
+    const filteredBreadArray = breadArray.filter(bread => {
+      if (toastedFilter) {
+        return bread.toasted;
+      } else {
+        return true
+      }
+    })
+
+    return (
+      <div>
+        <Header />
+        <BreadContainer
+          toasted={toastedFilter}
+          toggleToastedFilter={this.toggleToastedFilter}
+          people={["dan", "bob"]}
+          breadList={filteredBreadArray}
+          toggleToastedStatus={this.toggleToastedStatus}
+        />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
