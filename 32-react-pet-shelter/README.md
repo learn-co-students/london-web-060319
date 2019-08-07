@@ -94,6 +94,8 @@ adoption status.
 
 - Instead of showing a disabled button, show a button to 'unadopt' a pet
 
+- Add more filters! ?type=cat&age=3
+
 ## Resources
 
 - [Forms](https://facebook.github.io/react/docs/forms.html)
