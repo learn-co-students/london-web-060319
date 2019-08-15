@@ -7,7 +7,7 @@ class PokemonCollection extends React.Component {
     return (
       <Card.Group itemsPerRow={6}>
         {
-          this.props.pokemons.map(pokemon => <PokemonCard {...pokemon} />)
+          this.props.pokemons.map(pokemon => <PokemonCard {...pokemon} handleClick={() => this.props.handlePokemonClick(pokemon)} />)
         }
       </Card.Group>
     )

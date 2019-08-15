@@ -33,7 +33,7 @@ class PokemonCard extends React.Component {
     const color = colorMap[this.props.types[0]] || 'black'
 
     return (
-      <Card onClick={this.toggleFrontState} color={color}>
+      <Card onClick={this.props.handleClick} color={color}>
         <div>
           <div className="image">
             <img alt="oh no!" src={this.state.showFront ? front : back} />
