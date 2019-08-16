@@ -48,6 +48,7 @@ const convertPokemonToBackendStructure = pokemon => ({
 })
 
 const getPokemons = () => fetch(pokemonsURL).then(res => res.json())
+const getPokemon = (id) => fetch(`${pokemonsURL}/${id}`).then(res => res.json())
 
 const postPokemon = pokemon => fetch(pokemonsURL, {
     method: 'post',
@@ -60,5 +61,6 @@ const postPokemon = pokemon => fetch(pokemonsURL, {
 
 export default {
     getPokemons,
-    postPokemon
+    postPokemon,
+    getPokemon
 }

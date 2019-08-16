@@ -4,5 +4,9 @@ import 'semantic-ui-css/semantic.min.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import { BrowserRouter, Route } from 'react-router-dom'
+
+ReactDOM.render(<BrowserRouter>
+    <Route path="/" component={App} />
+</BrowserRouter>, document.getElementById('root'))
 registerServiceWorker()

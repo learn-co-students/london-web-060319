@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 
 const colorMap = {
@@ -33,13 +34,15 @@ class PokemonCard extends React.Component {
     const color = colorMap[this.props.types[0]] || 'black'
 
     return (
-      <Card onClick={this.props.handleClick} color={color}>
+      <Card color={color}>
         <div>
           <div className="image">
             <img alt="oh no!" src={this.state.showFront ? front : back} />
           </div>
           <div className="content">
-            <div className="header">{this.props.name}</div>
+            <div className="header">
+              <Link to={`/pokemons/${this.props.id}`}>{this.props.name}</Link>
+            </div>
           </div>
           <div className="extra content">
             <span>
