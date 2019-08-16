@@ -4,13 +4,22 @@ const loginUrl = `${endpoint}/login`
 const postsUrl = `${endpoint}/posts`
 const validateUrl = `${endpoint}/validate`
 
+
 const jsonify = res => {
     if (res.ok)
         return res.json()
     else
-        throw new Error(res.json())
+        throw res.json()
 }
-const handleServerError = response => console.error(response)
+const handleServerError = response => {
+    // console.error(response)
+    throw response
+}
+
+const saveToken = data => {
+    localStorage.setItem('token', data.token)
+    return data.user
+}
 
 const constructHeaders = (moreHeaders = {}) => (
     {
@@ -26,10 +35,7 @@ const signUp = (user) => fetch(signupUrl, {
     },
     body: JSON.stringify({ user })
 }).then(jsonify)
-    .then(data => {
-        localStorage.setItem('token', data.token)
-        return data.user
-    })
+    .then(saveToken)
     .catch(handleServerError)
 
 
@@ -40,6 +46,8 @@ const logIn = (user) => fetch(loginUrl, {
     },
     body: JSON.stringify({ user })
 }).then(jsonify)
+    .then(saveToken)
+    .catch(handleServerError)
 
 const validateUser = () => {
     if (!localStorage.getItem('token')) return Promise.resolve({ error: 'no token' })
@@ -47,12 +55,21 @@ const validateUser = () => {
     return fetch(validateUrl, {
         headers: constructHeaders()
     }).then(jsonify)
-        .then(data => {
-            localStorage.setItem('token', data.token)
-            return data.user
-        })
+        .then(saveToken)
         .catch(handleServerError)
 }
+
+const postPost = post => fetch(postsUrl, {
+    method: 'POST',
+    body: JSON.stringify({ post }),
+    headers: constructHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    })
+}).then(jsonify)
+    .catch(handleServerError)
+
+const getPosts = () => fetch(postsUrl).then(jsonify)
 
 const clearToken = () => localStorage.removeItem('token')
 
@@ -60,5 +77,7 @@ export default {
     signUp,
     logIn,
     validateUser,
-    clearToken
+    clearToken,
+    postPost,
+    getPosts
 }

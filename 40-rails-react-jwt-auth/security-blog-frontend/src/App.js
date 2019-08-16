@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import API from './adapters/API';
+import PostForm from './components/PostForm';
 
 class App extends React.Component {
 
@@ -12,15 +13,8 @@ class App extends React.Component {
 
   componentDidMount() {
     API.validateUser()
-      .then(data => {
-        if (data.error) {
-          console.error(data.error)
-          // display some error
-          // this.props.history.push('/login')
-        } else {
-          this.setState({ user: data })
-          // this.props.history.push('/dashboard')
-        }
+      .then(user => {
+        this.setState({ user })
       })
   }
 
@@ -39,10 +33,28 @@ class App extends React.Component {
     this.setState({ user: undefined })
   }
 
+  submitPost = (post) => {
+    API.postPost(post)
+      .then(data => this.setState({ user: { ...this.state.user, posts: [...this.state.user.posts, data.post] } }))
+      .catch(errorPromise => {
+        errorPromise
+          .then(data => {
+            this.setState({ errors: data.errors })
+          })
+      })
+  }
+
   render() {
     return (
       <div className="App">
         <Navbar user={this.state.user} signUp={this.signUp} logIn={this.logIn} logOut={this.logOut} />
+        {
+          this.state.user &&
+          <PostForm errors={this.state.errors} submit={this.submitPost} />
+        }
+        {
+          this.state.user && this.state.user.posts.length > 0 && this.state.user.posts.map(p => <div>{p.title}</div>)
+        }
       </div>
     );
   }
