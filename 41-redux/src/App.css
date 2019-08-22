@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+nav {
+  background: grey;
+  height: 3rem;
+}
+
+nav > h2 {
+  margin: 0;
+  line-height: 3rem;
+}
+
+.calc-container {
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 40rem;
+}
+
+.control > span {
+  width: 10rem;
+  display: inline-block;
+}
+
+.calc-container > .controls {
+  width: 100%;
+}
+
+.controls.remove {
+  background: red;
+}
+
+.calc-container > .calculator {
+  width: 10rem;
+  border: black solid 1px;
+  border-radius: 1rem;
+  background: lightgray;
+  margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.calc-container > .calculator > .total {
+  width: 90%;
+  margin: auto;
+  background: #525252;
+  color: lime;
+  font-family: monospace;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: black solid 1px;
+}
+
+button {
+  width: 6rem;
+  height: 2rem;
+  background: teal;
+  color: white;
+  font-weight: bold;
+  border: cyan solid 1px;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
