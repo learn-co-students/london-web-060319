@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "gtn-client"
+		},
+		{
+			"path": "gtn-api"
+		}
+	],
+	"settings": {}
+}
