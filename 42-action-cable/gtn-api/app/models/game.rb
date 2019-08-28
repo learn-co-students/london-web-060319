@@ -1,10 +1,10 @@
 class Game < ApplicationRecord
-    has_many :user_games
+    has_many :user_games, dependent: :destroy
     has_many :users, through: :user_games
     has_many :moves, dependent: :destroy
 
     def user_ids= ids
-        ids.each{|id| UserGame.create(game: self, user_id: id)}
+        ids.each{|id| UserGame.create(game: self, user: User.find(id))}
     end
 
     def current_turn
@@ -29,7 +29,7 @@ class Game < ApplicationRecord
         end
         current_turn = 1
         turns_arr = []
-        while (current_turn < self.current_turn)
+        while (current_turn <= self.current_turn)
           moves = self.moves.where(turn: current_turn)
           u1 = moves.find{|m| m.user == self.users.first}
           u2 = moves.find{|m| m.user == self.users.last}
