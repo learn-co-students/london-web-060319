@@ -1,4 +1,7 @@
-class PetsController < ApplicationController
+<%= f.label :user_id %>
+  <% if @user %>
+      <p><%= @user.name %></p>
+      <%= form.hidden_field :user_id, value: @user.id %>class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
